@@ -18,6 +18,7 @@ function App() {
   const getData = async () => {
     const res = await axios.get('https://geolocation-db.com/json/')
     console.log(res.data);
+    setIpAdress(JSON.stringify(res.data));
 
   }
   const handleOnChange = (e) => {
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <>
+      <span>Thông tin IP nè {ipAddress}</span>
       <CountrySelector countries={countries} handleOnChange={handleOnChange} value={selectedCountry} />
       <HighLight report={report} />
       <Summary report={report} countryId={selectedCountry} />
