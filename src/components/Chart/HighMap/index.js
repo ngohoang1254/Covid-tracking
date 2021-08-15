@@ -44,7 +44,7 @@ const HighMaps = ({ mapData }) => {
   const [options, setOptions] = useState({});
   const [mapLoaded, setMapLoaded] = useState(false);
   const chartRef = useRef(null);
-
+  console.log(mapData);
   useEffect(() => {
     if (mapData && Object.keys(mapData).length) {
       console.log({ mapData });
@@ -76,6 +76,7 @@ const HighMaps = ({ mapData }) => {
   }, [options, mapData]);
 
   if (!mapLoaded) return null;
+  console.log(options);
 
   return (
     <HighchartsReact

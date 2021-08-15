@@ -5,6 +5,7 @@ import HighMap from "../Chart/HighMap";
 import LineChart from "../Chart/LineCharts";
 export default function Summary({ countryId, report }) {
     const [mapData, setMapData] = useState({});
+    console.log(mapData, "----------");
     useEffect(() => {
         if (countryId) {
             getMapDataByCountryId(countryId)
