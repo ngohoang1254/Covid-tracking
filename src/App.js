@@ -3,17 +3,23 @@ import CountrySelector from './components/CountrySelector';
 import HighLight from './components/Highlight';
 import Summary from './components/Summary';
 import { useEffect, useState } from 'react';
+import axios from "axios"
 import { getCountries, getReportByCountries } from './apis';
 function App() {
 
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
   const [report, setReport] = useState();
+  const [ipAddress, setIpAdress] = useState('');
   useEffect(() => {
     getCountries().then(res => setCountries(res.data));
     setSelectedCountry('vn')
   }, []);
+  const getData = async () => {
+    const res = await axios.get('https://geolocation-db.com/json/')
+    console.log(res.data);
 
+  }
   const handleOnChange = (e) => {
     // const { Slug } = countries.find(country => country.ISO2.toLowerCase() === e.target.value);
     // getReportByCountries(Slug).then(res => console.log(res));
@@ -31,7 +37,8 @@ function App() {
         });
       }
     }
-  }, [selectedCountry, countries])
+    getData();
+  }, [selectedCountry, countries,])
 
 
   return (
