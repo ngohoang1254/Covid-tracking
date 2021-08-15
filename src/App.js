@@ -44,6 +44,8 @@ function App() {
 
   return (
     <>
+      <span>Web này Ngô Hoàng làm nè</span>
+      <span>https://www.facebook.com/ngomanh.hoang.2601/</span>
       <span>Thông tin IP nè {ipAddress}</span>
       <CountrySelector countries={countries} handleOnChange={handleOnChange} value={selectedCountry} />
       <HighLight report={report} />
